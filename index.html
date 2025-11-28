@@ -127,6 +127,18 @@
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* ===== SCROLL REVEAL ANIMATION ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
     </style>
 </head>
 
@@ -139,7 +151,7 @@
 
 <div class="container">
 
-    <div class="section">
+    <div class="section reveal">
         <h2>What Is an Official Portrait?</h2>
         <p>
             An <strong>official portrait</strong> is a formal photograph or painting representing individuals in
@@ -148,7 +160,7 @@
         </p>
     </div>
 
-    <div class="section">
+    <div class="section reveal">
         <h2>Key Qualities of an Official Portrait</h2>
         <ul>
             <li><strong>Formal attire:</strong> Suit, uniform, shirt, gown, or traditional regalia.</li>
@@ -159,24 +171,23 @@
         </ul>
     </div>
 
-    <div class="section">
+    <div class="section reveal">
         <h2>Sample Official Portraits (Click to View)</h2>
 
-        <div class="gallery">
-            <img src="https://freeimage.host/i/fCe38y7" onclick="openPopup(this.src)">
-            <img src="https://ibb.co/rGLYK90F" onclick="openPopup(this.src)">
-            <img src="https://ibb.co/9km6nmrx" onclick="openPopup(this.src)">
-            <img src="https://via.placeholder.com/500x600/0a1a2f/f1d78c?text=Portrait+4" onclick="openPopup(this.src)">
-            <a href="https://freeimage.host/i/fCe38y7"><img src="https://iili.io/fCe38y7.jpg" alt="fCe38y7.jpg" border="0"></a>
+        <div class="gallery reveal">
+            <img src="https://iili.io/fCe38y7.jpg" onclick="openPopup(this.src)">
+            <img src="https://i.ibb.co/HLRgtFvV/pyemisi.jpg" onclick="openPopup(this.src)">
+            <img src="https://i.ibb.co/210xq0kz/IMG-0451.jpg" onclick="openPopup(this.src)">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFB6viq1qp7UZn_FGLUApo7JVBeyDvaCMWFw&s" onclick="openPopup(this.src)">
         </div>
     </div>
 
-    <div class="section">
+    <div class="section reveal">
         <h2>Why They Matter</h2>
         <p>
-            Official portraits are part of institutional identity. They preserve history, honour leadership,
-            and present a professional image to the public. They also serve as visual records for organisations
-            across generations.
+            Official portraits form a vital part of institutional identity. They preserve history, honour leadership, and present a polished, trustworthy image to the public. 
+            They stand as visual records for organisations across generations. For CEOs, executives, and business leaders, a well-crafted official portrait communicates excellence, 
+            professionalism, and the strength of their personal brand.
         </p>
     </div>
 
@@ -200,9 +211,27 @@
         document.getElementById("popup").style.display = "none";
     }
 </script>
+    <script>
+function revealOnScroll() {
+    const elements = document.querySelectorAll(".reveal");
+    const trigger = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+</script>
+
 
 </body>
 </html>
+
 
 
 
